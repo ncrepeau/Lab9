@@ -31,13 +31,13 @@ public class Player {
 		KeyCode myCode = event.getCode();
 
 		if (myCode == KeyCode.LEFT) {
-			x -= 1;
+			x -= 5;
 		} else if (myCode == KeyCode.RIGHT) {
-			x += 1;
+			x += 5;
 		} else if (myCode == KeyCode.DOWN) {
-			y += 1;
+			y += 5;
 		} else if (myCode == KeyCode.UP) {
-			y -= 1;
+			y -= 5;
 		}
 		playerImage.setX(x);
 		playerImage.setY(y);
