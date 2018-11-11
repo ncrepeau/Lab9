@@ -9,13 +9,17 @@ public class Player {
 	private int y;
 	private ImageView playerImage;
 	private Stage primaryStage;
+	private int[][] myArray;
 	private Scene gameScreen;
-	public void setMovement(int x, int y, ImageView playerImage, Stage primaryStage, Scene gameScreen) {
+
+	public void setMovement(int x, int y, ImageView playerImage, Stage primaryStage, Scene gameScreen,
+			int[][] myArray) {
 		this.playerImage = playerImage;
 		this.x = x;
 		this.y = y;
 		this.primaryStage = primaryStage;
 		this.gameScreen = gameScreen;
+		this.myArray = myArray;
 	}
 
 	public String getPlayerImg() {
@@ -29,15 +33,36 @@ public class Player {
 
 	public void listenUp(KeyEvent event) {
 		KeyCode myCode = event.getCode();
-
+		int row = 0;
+		int column = 0;
 		if (myCode == KeyCode.LEFT) {
-			x -= 5;
+			if (myArray[row][column - 1] == 1) {
+				x -= 0;
+			} else {
+				x -= 20;
+				column -= 1;
+			}
 		} else if (myCode == KeyCode.RIGHT) {
-			x += 5;
+			if (myArray[row][column + 1] == 1) {
+				x += 0;
+			} else {
+				x += 20;
+				column += 1;
+			}
 		} else if (myCode == KeyCode.DOWN) {
-			y += 5;
+			if (myArray[row + 1][column] == 1) {
+				y += 0;
+			} else {
+				y += 20;
+				row += 1;
+			}
 		} else if (myCode == KeyCode.UP) {
-			y -= 5;
+			if(myArray[row - 1][column] == 1) {
+				y -= 0;
+			}else {
+			y -= 20;
+			row -= 1;
+			}
 		}
 		playerImage.setX(x);
 		playerImage.setY(y);

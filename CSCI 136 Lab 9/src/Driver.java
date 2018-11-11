@@ -192,11 +192,11 @@ public class Driver extends Application {
 
 		Group root = new Group(playerImage, myPane);
 		Scene gameScreen = new Scene(root);
-		int x = 0;
-		int y = 0;
+		int x= 0;
+		int y = 150;
 		playerImage.setX(x);
 		playerImage.setY(y);
-		myPlayer.setMovement(x, y, playerImage, primaryStage, gameScreen);
+		myPlayer.setMovement(x, y, playerImage, primaryStage, gameScreen, myArray);
 		myPlayer.playerMovement(gameScreen);
 		primaryStage.setScene(gameScreen);
 		primaryStage.show();
